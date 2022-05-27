@@ -1,0 +1,203 @@
+body{  
+    font-family: Calibri, Helvetica, sans-serif;  
+    background-color: #15616d;  
+  }
+  nav{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    display: flex;
+    background-color: #001524;
+    justify-content: space-around;
+    padding: 20px 0;
+    color: #FFECD1;
+    overflow-x: hidden;
+}
+
+
+nav ul{
+    display: flex;
+    list-style: none;
+    width: 40%;
+    justify-content: space-between;
+}
+
+nav ul li a{
+    color: #FFECD1;
+    text-decoration: none;
+    font-family: 'Kurale', serif;
+    font-size: 1em;
+}
+
+nav ul li a:hover{
+    color: #FF7D00;
+}
+
+/*Hamburger*/
+.menu-toggle{
+    display: none;
+    flex-direction: column;
+    height: 20px;
+    justify-content: space-between;
+    position: relative;
+}
+
+.menu-toggle input{
+    position: absolute;
+    width: 40px;
+    height: 28px;
+    left: -5px;
+    top:-3px;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.menu-toggle span{
+    display: block;
+    width: 28px;
+    height: 3px;
+    background-color: #FFECD1;
+    border-radius: 3px;
+    transition: all 0.5s;
+}
+
+/*hamburger menu animation*/
+.menu-toggle span:nth-child(2){
+    transform-origin: 0 0;
+}
+
+.menu-toggle span:nth-child(4){
+    transform-origin: 0 100%;
+}
+
+.menu-toggle input:checked ~ span:nth-child(2){
+    background-color: #FFECD1;
+    transform: rotate(45deg) translate(-1px, -1px);
+}
+
+.menu-toggle input:checked ~ span:nth-child(4){
+    background-color: #FFECD1;
+    transform: rotate(-45deg) translate(-1px, 0);
+}
+
+.menu-toggle input:checked ~ span:nth-child(3){
+    opacity: 0;
+    transform: scale(0);
+}
+
+
+/*Responsive*/
+@media screen and (max-width: 768px){
+    nav ul{
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 576px){
+    .menu-toggle{
+        display: flex;
+    }
+    nav ul{
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 80%;
+        height: 100vh;
+        justify-content: space-evenly;
+        flex-direction: column;
+        align-items: center;
+        z-index: -1;
+        background-color: #001524;
+        transform: translateX(100%);
+        transition: all 1s;
+        opacity: 0;
+    }
+
+    nav ul.slide{
+        opacity: 1;
+        transform: translateX(0); 
+    }
+}
+  .kiri{
+  position: absolute;
+  width: 509px;
+  height: 233px;
+  left: -2px;
+  top: 225px;
+  font-family: 'Jacques Francois';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 42px;
+  text-align: center;
+  color: #FFFFFF;
+  }  
+  .container {  
+      padding: 50px;  
+    background-color: #F9F9F9;
+    position: absolute;
+  width: 500px;
+  height: 700px;
+  left: 600px;
+  top: 170px;
+  }  
+    
+  input[type=text], input[type=password], textarea {  
+    width: 100%;  
+    padding: 15px;  
+    margin: 5px 0 22px 0;  
+    display: inline-block;  
+    border: none;  
+    background: #f1f1f1;  
+  }  
+  input[type=text]:focus, input[type=password]:focus {  
+    background-color: orange;  
+    outline: none;  
+  }  
+   div {  
+              padding: 10px 0;
+           }  
+  hr {  
+    border: 1px solid #f1f1f1;  
+    margin-bottom: 25px;  
+  }  
+  .registerbtn {  
+    background-color:  #001524;
+    color: white;
+    padding: 16px 20px;  
+    margin: 8px 0;  
+    border: none;  
+    cursor: pointer;  
+    width: 100%;  
+    opacity: 0.9;  
+    position: absolute;
+    width: 148px;
+  height: 42px;
+  left: 390px;
+  top: 520px;
+  }  
+  .registerbtn:hover {  
+    opacity: 1;  
+  }
+  .img1{
+    position: absolute;
+  width: 75px;
+  height: 96px;
+  left: 42px;
+  top: 383px;
+  }
+  .img2{
+    position: absolute;
+  width: 111px;
+  height: 80px;
+  left: 172px;
+  top: 399px;
+  }
+  .img3{
+    position: absolute;
+  width: 106px;
+  height: 105px;
+  left: 338px;
+  top: 380px;
+  }

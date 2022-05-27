@@ -10,6 +10,7 @@
             /* logika sederhana admin */
             if($username == "admin" && $password == "admin"){
                 echo "<h1>Selamat Datang, ".$username."!</h1>";
+                header("Location:../Home/Home.php");
             }else{
                 echo "<h2>Username atau Password Salah!</h2>";
             }

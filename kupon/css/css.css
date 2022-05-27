@@ -1,0 +1,113 @@
+.a{
+	position: absolute;
+width: 1184px;
+height: 597px;
+left: 119px;
+top: 206px;
+
+background: #FF7D00;
+}
+.b{
+position: absolute;
+width: 420px;
+height: 58px;
+left: 443px;
+top: 371px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 24px;
+line-height: 29px;
+
+color: #000000;
+}
+
+.c{
+position: absolute;
+width: 532px;
+height: 24px;
+left: 387px;
+top: 429px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 24px;
+
+color: #000000;
+}
+
+.d{
+position: absolute;
+width: 572px;
+height: 24px;
+left: 386px;
+top: 461px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 24px;
+
+color: #000000;
+
+}
+
+.e{
+position: absolute;
+width: 296px;
+height: 24px;
+left: 386px;
+top: 512px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 24px;
+
+color: #CB1206;
+}
+
+.f{
+position: absolute;
+width: 106px;
+height: 39px;
+left: 852px;
+top: 526px;
+
+background: #D9D9D9;
+border-radius: 80px;
+}
+
+.g{
+	position: absolute;
+width: 172px;
+height: 46px;
+left: 1000px;
+top: 738px;
+
+background: #D9D9D9;
+border-radius: 80px;
+}
+
+.aa{
+	position: absolute;
+width: 610px;
+height: 229px;
+left: 363px;
+top: 247px;
+text-align: center;
+background: #FFFFFF;
+}
+
+.bb{
+	position: relative;
+width: 1600px;
+height: 888px;
+
+background: #15616D;;
+}

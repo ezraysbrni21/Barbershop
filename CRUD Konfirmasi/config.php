@@ -1,10 +1,12 @@
-<?php 
-define('DB_SERVER', 'localhost'); 
-define('DB_USERNAME', 'root'); 
-define('DB_PASSWORD', ''); 
-define('DB_NAMA', 'PKbarbershop.sql'); 
-$conn = mysqli_connect("localhost", "root","" , "PKbarbershop.sql"); 
-if ($conn === false) { 
-die("ERROR: Could not connect. " . mysqli_connect_error()); 
-} 
+<?php
+  $host = "localhost"; 
+  $user = "root";
+  $pass = "";
+  $nama_db = "barbershop"; //nama database
+  $koneksi = mysqli_connect($host,$user,$pass,$nama_db); //pastikan urutan nya seperti ini, jangan tertukar
+
+  if(!$koneksi){ //jika tidak terkoneksi maka akan tampil error
+    die ("Koneksi dengan database gagal: ".mysql_connect_error());
+  }
+  
 ?>

@@ -4,19 +4,18 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+        <title>Notifikasi</title>
+        <link rel="stylesheet" href="aturan.css"/>
+
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
             integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     </head>
     
     <body>
         <div class="container">
-            
-
-
             <div class="dropdown">
                 <button type="button" class="btn btn-primary" data-toggle="dropdown">
-                    <img src="image/lonceng.PNG"><span class="badge badge-light" id="notif"></span>
+                    <img src="image/lonceng.PNG" width="20" height="20"><span class="badge badge-light" id="notif"></span>
                 </button>
                 <div id="pesan" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
     

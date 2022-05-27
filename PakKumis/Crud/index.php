@@ -7,11 +7,21 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>CRUD Index</title>
-    <link rel="stylesheet" href="navbar.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>  
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />  
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
+    <link rel="stylesheet" href="css/navbar.css"/>
+    <script src="js/navbar.js"></script>
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" />
 
     <style type="text/css">
       * {
         font-family: "Arial";
+
+      }
+      html,body {
+        min-height: 100%;
+        background-color: #15616D;
       }
       h1 {
         text-transform: uppercase;
@@ -41,14 +51,10 @@
         color: #000000;
         padding: 10px;
         text-shadow: 1px 1px 1px #fff;
+        
     }
-    a {
-          background-color: #001524;
-          color: #F8F8FF;
-          padding: 10px;
-          text-decoration: none;
-          font-size: 12px;
-    }
+
+
 
 
     @media (min-width: 568px) {
@@ -69,35 +75,35 @@
         }
       }
     </style>
-
-    <link rel="stylesheet" type="text/css" href="app.css" />
   </head>
   <body>
+<header>
     <nav>
-            <div class="logo">
-                <img src="gambar/logo.jpeg" alt="image" height="80px" width="180px"/>
-            </div>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Appointment</a></li>
-                <li><a href="#">Informasi</a></li>
-                <li><a href="#">Lowongan</a></li>
-                <li><a href="#">Produk</a></li>
-                <li><a href="#">Notifikasi</a></li>
-            </ul>
-            <div class="menu-toggle">
-                <input type="checkbox"/>
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+        <div class="logo">
+            <img src="images/pkb.jpeg" alt="image" height="80px" width="180px"/>
+        </div>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Appointment</a></li>
+            <li><a href="#">Informasi</a></li>
+            <li><a href="#">Layanan</a></li>
+            <li class="active"><a data-toggle="tab" href="#products">Produk</a></li>
+            <li><a href="#">Notifikasi</a></li>
+            <li><a data-toggle="tab" href="#cart">Cart <span class="badge"><?php if(isset($_SESSION["barbershop"])) { echo count($_SESSION["testing"]); } else { echo '0';} ?> </span></a></li>
+        </ul>
+        <div class="menu-toggle">
+            <input type="checkbox"/>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     </nav>
+</header>
+
     <script src="navbar.js"></script>
 
-
-
     <center><h1>Data Produk</h1><center>
-    <center><a href="tambah_produk.php">+ &nbsp; Tambah Produk</a><center>
+    <center><button ><a href="tambah_produk.php">+ &nbsp; Tambah Produk</a></button><center>
     <br/>
     <table>
       <thead>
@@ -106,6 +112,7 @@
           <th>Produk</th>
           <th>Dekripsi</th>
           <th>Harga</th>
+          <th>Stok</th>
           <th>Gambar</th>
           <th>Action</th>
         </tr>
@@ -113,7 +120,7 @@
     <tbody>
       <?php
       // jalankan query untuk menampilkan semua data diurutkan berdasarkan nim
-      $query = "SELECT * FROM produk ORDER BY id ASC";
+      $query = "SELECT * FROM produk ORDER BY id_produk ASC";
       $result = mysqli_query($koneksi, $query);
       //mengecek apakah ada error ketika menjalankan query
       if(!$result){
@@ -131,12 +138,13 @@
        <tr>
           <td><?php echo $no; ?></td>
           <td><?php echo $row['nama_produk']; ?></td>
-          <td><?php echo substr($row['deskripsi'], 0, 20); ?></td>
-          <td>Rp <?php echo number_format($row['harga_beli'],0,',','.'); ?></td>
-          <td style="text-align: center;"><img src="gambar/<?php echo $row['gambar_produk']; ?>" style="width: 120px;"></td>
+          <td><?php echo substr($row['deskripsi_produk'], 0, 20); ?></td>
+          <td>Rp <?php echo number_format($row['harga_produk'],0,',','.'); ?></td>
+          <td><?php echo $row['stok']; ?></td>
+          <td style="text-align: center;"><img src="gambar/<?php echo $row['gambar']; ?>" style="width: 120px;"></td>
           <td>
-              <a href="edit_produk.php?id=<?php echo $row['id']; ?>">Edit</a> |
-              <a href="proses_hapus.php?id=<?php echo $row['id']; ?>" onclick="return confirm('Anda yakin akan menghapus data ini?')">Hapus</a>
+              <button><a href="edit_produk.php?id=<?php echo $row['id_produk']; ?>">Edit</a></button> |
+              <button ><a href="proses_hapus.php?id=<?php echo $row['id_produk']; ?>" onclick="return confirm('Anda yakin akan menghapus data ini?')">Hapus</a></button>
           </td>
       </tr>
          
@@ -148,28 +156,38 @@
     </table>
 
 
-    <footer>
-      <h2>Pak Kumis <br /> Barbershop</h2>
-      <h4>Hubungi Kami</h4>
-      <h4 class="media">Social Media</h4>
-      <br />
-      <div class="gambar">
-        <center>
-          <ul>
-            <li><img src="gambar/wa.PNG" style="width: 2%" /><a>+6285156968495</a></li>
-            <li><img src="gambar/gmail.PNG" style="width: 3%" /><a>pakumis@gmail.com</a></li>
-            <li>
-              <img src="gambar/map.PNG" style="width: 5%" /><a>Jl. Kartini Atas Balige, Balige III, <br />
-               Balige KabupatenToba Samosir, <br />Sumatera Utara</a>
-            </li>
-          </ul>
-        </center>
-      </div>
-      <div class="sosial">
-        <img src="gambar/instagram.PNG" style="width: 3%" /> &nbsp;
-        <img src="gambar/fb.PNG" style="width: 3%" />
-      </div>
-      <p>Copyright Team 4 PSW II Institut Teknologi Del 2022</p>
+    <footer class="footer">
+        <div class="footer-left">
+            <h3>Pak Kumis <br>Barbershop</h3>
+        </div>
+        <div class="footer-center">
+      <p>
+                <span style="font-size:18px"><b>Hubungi Kami</b></span>
+            </p>
+      <div>
+                <img src="images/wa.png" class="fa fa-phone" height="30px" width="30px"></i>
+                <p>+6285156968495</p>
+            </div>
+            <div>
+                <img src="images/gmail.png" class="fa fa-envelope" height="40px" width="40px"></i>
+                <p><a href="#">pakumis@gmail.com</a></p>
+            </div>
+            <div>
+                <img src="images/map.png" class="fa fa-map-marker" height="80px" width="80px"></i>
+                <p><span>Balige</span>Jl. Kartini Atas Balige, Kabupaten Toba, Sumatera Utara</p>
+            </div>  
+        </div>
+
+        <div class="footer-right">
+            <p class="footer-about">
+                <span>Social Media</span>
+            </p>
+            <div class="footer-media">
+        <a href="#"><img src="images/ig.png" class="fa fa-instagram" height="30px" width="30px"></i></a>
+                <a href="#"><img src="images/fb.png" class="fa fa-facebook" height="30px" width="30px"></i></a>
+            </div>
+        </div>
+    <center><p class="footer-copyright">Copyright Team 4 PSW II Institut Teknologi Del 2022</p></center>
     </footer>
   </body>
 </html>

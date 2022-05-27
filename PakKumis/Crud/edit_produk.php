@@ -3,12 +3,12 @@
 include 'koneksi.php';
 
   // mengecek apakah di url ada nilai GET id
-  if (isset($_GET['id'])) {
+  if (isset($_GET['id_produk'])) {
     // ambil nilai id dari url dan disimpan dalam variabel $id
-    $id = ($_GET["id"]);
+    $id_produk = ($_GET["id_produk"]);
 
     // menampilkan data dari database yang mempunyai id=$id
-    $query = "SELECT * FROM produk WHERE id='$id'";
+    $query = "SELECT * FROM produk WHERE id_produk='$id_produk'";
     $result = mysqli_query($koneksi, $query);
     // jika data gagal diambil maka akan tampil error berikut
     if(!$result){
@@ -116,23 +116,27 @@ include 'koneksi.php';
     <form method="POST" action="proses_edit.php" enctype="multipart/form-data" >
       <section class="base">
         <!-- menampung nilai id produk yang akan di edit -->
-        <input name="id" value="<?php echo $data['id']; ?>"  hidden />
+        <input name="id_produk" value="<?php echo $data['id_produk']; ?>"  hidden />
         <div>
           <label>Nama Produk</label>
           <input type="text" name="nama_produk" value="<?php echo $data['nama_produk']; ?>" autofocus="" required="" />
         </div>
         <div>
           <label>Deskripsi</label>
-          <input type="text" name="deskripsi" value="<?php echo $data['deskripsi']; ?>" />
+          <input type="text" name="deskripsi_produk" value="<?php echo $data['deskripsi_produk']; ?>" />
         </div>
         <div>
           <label>Harga</label>
-          <input type="text" name="harga_beli" required=""value="<?php echo $data['harga_beli']; ?>" />
+          <input type="text" name="harga" required=""value="<?php echo $data['harga']; ?>" />
+        </div>
+        <div>
+          <label>Stok</label>
+          <input type="text" name="stok" required=""value="<?php echo $data['stok']; ?>" />
         </div>
         <div>
           <label>Gambar Produk</label>
-          <img src="gambar/<?php echo $data['gambar_produk']; ?>" style="width: 120px;float: left;margin-bottom: 5px;">
-          <input type="file" name="gambar_produk" />
+          <img src="gambar/<?php echo $data['gambar']; ?>" style="width: 120px;float: left;margin-bottom: 5px;">
+          <input type="file" name="gambar" />
           <i style="float: left;font-size: 11px;color: red">Abaikan jika tidak merubah gambar produk</i>
         </div>
         <div>

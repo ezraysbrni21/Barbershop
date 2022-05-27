@@ -103,15 +103,16 @@
 <header>
     <nav>
         <div class="logo">
-            <img src="image/logo.jpeg" alt="image" height="80px" width="180px"/>
+            <img src="image/pkb.jpeg" alt="image" height="80px" width="180px"/>
         </div>
         <ul>
             <li><a href="#">Home</a></li>
             <li><a href="#">Appointment</a></li>
             <li><a href="#">Informasi</a></li>
             <li><a href="#">Layanan</a></li>
-            <li><a href="#">Produk</a></li>
+            <li class="active"><a data-toggle="tab" href="#products">Produk</a></li>
             <li><a href="#">Notifikasi</a></li>
+            <li><a data-toggle="tab" href="#cart">Cart <span class="badge"><?php if(isset($_SESSION["barbershop"])) { echo count($_SESSION["barbershop"]); } else { echo '0';}?></span></a></li>
         </ul>
         <div class="menu-toggle">
             <input type="checkbox"/>

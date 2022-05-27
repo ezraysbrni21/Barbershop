@@ -1,0 +1,55 @@
+@font-face{
+    font-family: Romanesco;
+    src: url('../font/Romanesco/Romanesco-Regular.ttf');
+}
+
+:root{
+    --coklat:#C9AD1A;
+}
+
+*{
+    font-family: Romanesco;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none; 
+    border: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: all .2s linear;
+}
+
+*::selection{
+    beckground:var(--coklat);
+    color: #fff;
+}
+
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+}
+
+body{
+    background:#15616D;
+}
+
+h1{
+    position: absolute;
+width: 647px;
+height: 78px;
+left: 62px;
+top: 183px;
+
+font-family: 'Sansita Swashed';
+font-style: normal;
+font-weight: 400;
+font-size: 65px;
+line-height: 78px;
+/* identical to box height */
+
+text-align: center;
+
+color: #FF7D00;
+}

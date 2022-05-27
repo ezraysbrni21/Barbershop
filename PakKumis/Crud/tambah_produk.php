@@ -94,17 +94,20 @@
           <input type="text" name="nama_produk" autofocus="" required="" />
         </div>
         <div>
-          <label>Deskripsi</label>
-         <input type="text" name="deskripsi" />
+          <label>Deskripsi Produk</label>
+         <input type="text" name="deskripsi_produk" />
         </div>
         <div>
           <label>Harga</label>
-         <input type="text" name="harga_beli" required="" />
+         <input type="text" name="harga" required="" />
         </div>
-
         <div>
-          <label>Gambar Produk</label>
-         <input type="file" name="gambar_produk" required="" />
+          <label>Stok</label>
+         <input type="file" name="stok" required="" />
+        </div>
+        <div>
+          <label>Gambar</label>
+         <input type="file" name="gambar" required="" />
         </div>
         <div>
          <button type="submit">Simpan Produk</button>

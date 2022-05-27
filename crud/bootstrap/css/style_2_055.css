@@ -1,0 +1,124 @@
+/*
+	Nama : Jensri Joice Samosir
+	NIM	 : 11421055
+*/
+body{
+	background-color: #15616D;
+}
+h1{
+	color: #FF7D00;
+	font-family: 'Oleo Script Swash Caps';
+}
+#y{
+	border:0;
+	margin-top: 70px;
+	margin-left: 480px;
+	text-align: justify;	
+	color:white;
+	width: 600px;
+	font-family: 'Kurale', serif;
+}
+input[type=text], input[type=number] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+th{
+	color:bisque;
+	font-family: 'Kurale', serif;
+}
+
+.button{
+	text-align: center;
+	font-family: 'Kurale', serif;
+}
+
+.hide{
+    display:none;
+}
+#desc{
+	margin-left: 30px; 
+	height: 150px; 
+	width: 400px;
+	border: 1px solid #FF7D00;
+    border-radius: 4px;
+}
+#produk{
+	margin-left: 50px; 
+	width: 407px;
+	border: 1px solid #FF7D00;
+    border-radius: 4px;
+}
+#harga{
+	margin-left: 50px; 
+	width: 407px;
+	border: 1px solid #FF7D00;
+    border-radius: 4px;
+}
+#pct{
+	margin-left: 95px; 
+	width: 407px;
+    border-radius: 4px;
+}
+#submit{ 
+	width: 90px;
+	background-color: black;
+	color: white;
+	padding: 8px 0;
+    border-radius: 4px;
+}
+footer{
+	position: absolute;
+	background-color: #001524;
+	width: 100%;
+	color: green;
+}
+
+
+footer{
+	height: 50vh;
+	bottom: 0;
+	top: 600px;
+    margin-top: 700px;
+}
+
+footer h2{
+	position: absolute;
+	margin-top: 164px;
+	margin-left: 77px;
+}
+
+footer h4{
+	position: absolute;
+	right: 45%;
+	margin-top: 30px;
+}
+
+footer p{
+	position: absolute;
+	left: 38%;
+	bottom: 20px;
+	color: orange;
+}
+
+.media{
+	right: 17%;
+}
+
+.gambar{
+	position: relative;
+	margin-top: 70px;
+}
+
+.sosial{
+	text-align: right;
+	margin-top: -220px;
+	margin-right: 265px;
+}
+.pak{
+    color:#FF7D00;
+}
