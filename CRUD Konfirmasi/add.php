@@ -1,50 +1,118 @@
+<?php
+  include('koneksi.php'); //agar index terhubung dengan database, maka koneksi sebagai penghubung harus di include
+  
+?>
+<!DOCTYPE html>
 <html>
-<head>
-	<title>Add Users</title>
-</head>
- 
-<body>
-	<a href="index.php">Go to Home</a>
-	<br/><br/>
- 
-	<form action="add.php" method="post" name="form1">
-		<table width="25%" border="0">
-			<tr> 
-				<td>Name</td>
-				<td><input type="text" name="name"></td>
-			</tr>
-			<tr> 
-				<td>Email</td>
-				<td><input type="text" name="email"></td>
-			</tr>
-			<tr> 
-				<td>Mobile</td>
-				<td><input type="text" name="mobile"></td>
-			</tr>
-			<tr> 
-				<td></td>
-				<td><input type="submit" name="Submit" value="Add"></td>
-			</tr>
-		</table>
-	</form>
-	
-	<?php
- 
-	// Check If form submitted, insert form data into users table.
-	if(isset($_POST['Submit'])) {
-		$name = $_POST['name'];
-		$email = $_POST['email'];
-		$mobile = $_POST['mobile'];
-		
-		// include database connection file
-		include_once("config.php");
-				
-		// Insert user data into table
-		$result = mysqli_query($mysqli, "INSERT INTO users(name,email,mobile) VALUES('$name','$email','$mobile')");
-		
-		// Show message when user added
-		echo "User added successfully. <a href='index.php'>View Users</a>";
-	}
-	?>
-</body>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CRUD add</title>
+    <link rel="stylesheet" href="navbar.css"/>
+
+    <style type="text/css">
+       * {
+        font-family: "Arial";
+      }
+      h1 {
+        text-transform: uppercase;
+        color: #ff7d00;
+        margin-top: 55px;
+        margin-bottom: 44px;
+      }
+      body{
+        font-size: 14px;
+        line-height: 22px;
+      }
+      button {
+            width: 150px;
+            background-color: darkcyan;
+            color: #F8F8FF;
+            padding: 10px;
+            text-decoration: none;
+            font-size: 12px;
+            border: 0px;
+            margin-top: 20px;
+            border-radius: 5px;
+      }
+      label {
+        margin-top: 10px;
+        float: left;
+        text-align: left;
+        width: 100%;
+      }
+      input {
+        padding: 6px;
+        width: 100%;
+        box-sizing: border-box;
+        background: #f8f8f8;
+        border: 2px solid #008B8B;
+        outline-color: darkcyan;
+        margin-bottom: 10px;
+      }
+    .base {
+      width: 400px;
+      height: auto;
+      padding: 20px;
+      margin-left: auto;
+      margin-right: auto;
+      background: #ededed;
+    }
+    </style>
+
+    <link rel="stylesheet" type="text/css" href="app.css" />
+  </head>
+  <body>
+    <nav>
+            <div class="logo">
+                <img src="images/pkb.jpeg" alt="image" height="80px" width="180px"/>
+            </div>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Appointment</a></li>
+                <li><a href="#">Informasi</a></li>
+                <li><a href="#">Lowongan</a></li>
+                <li><a href="#">Produk</a></li>
+                <li><a href="#">Notifikasi</a></li>
+            </ul>
+            <div class="menu-toggle">
+                <input type="checkbox"/>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+    </nav>
+    <script src="navbar.js"></script>
+
+
+      <center>
+        <h1>Tambah Informasi</h1>
+      <center>
+      <form method="POST" action="proses_tambah.php" enctype="multipart/form-data" >
+      <section class="base">
+        <div>
+          <label>Nama Produk</label>
+          <input type="text" name="nama_produk" autofocus="" required="" />
+        </div>
+        <div>
+          <label>Deskripsi Produk</label>
+         <input type="text" name="deskripsi_produk" />
+        </div>
+        <div>
+          <label>Harga</label>
+         <input type="text" name="harga" required="" />
+        </div>
+        <div>
+          <label>Stok</label>
+         <input type="file" name="stok" required="" />
+        </div>
+        <div>
+          <label>Gambar</label>
+         <input type="file" name="gambar" required="" />
+        </div>
+        <div>
+         <button type="submit">Simpan Produk</button>
+        </div>
+        </section>
+      </form>
+  </body>
 </html>
