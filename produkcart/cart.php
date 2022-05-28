@@ -1,7 +1,7 @@
 <?php  
  //cart.php  
  session_start();  
- $connect = mysqli_connect("localhost", "root", "", "pkbarbershop");  
+ $connect = mysqli_connect("localhost", "root", "", "barbershop");  
  ?>  
  <!DOCTYPE html>  
  <html>  
@@ -17,8 +17,8 @@
                 <?php  
                 if(isset($_POST["place_order"]))  
                 {  
-                     $insert_order = "  
-                     INSERT INTO tbl_order(customer_id, creation_date, order_status)  
+                     $insert_orders = " 
+                     INSERT INTO orders(id_customer, tanggal_order, total_harga)  
                      VALUES('1', '".date('Y-m-d')."', 'pending')  
                      ";  
                      $order_id = "";  
@@ -28,16 +28,16 @@
                      }  
                      $_SESSION["order_id"] = $order_id;  
                      $order_details = "";  
-                     foreach($_SESSION["pkbarbershop"] as $keys => $values)  
+                     foreach($_SESSION["barbershop"] as $keys => $values)  
                      {  
                           $order_details .= "  
-                          INSERT INTO tbl_order_details(order_id, nama_produk, deskripsi_produk, harga_produk, product_quantity)  
+                          INSERT INTO produk(id, nama_produk, deskripsi, harga_beli)  
                           VALUES('".$order_id."', '".$values["nama_produk"]."', '".$values["deskripsi_produk"]."', '".$values["harga_produk"]."', '".$values["product_quantity"]."');  
                           ";  
                      }  
                      if(mysqli_multi_query($connect, $order_details))  
                      {  
-                          unset($_SESSION["pkbarbershop"]);  
+                          unset($_SESSION["barbershop"]);  
                           echo '<script>alert("You have successfully place an order...Thank you")</script>';  
                           echo '<script>window.location.href="cart.php"</script>';  
                      }  
@@ -45,7 +45,7 @@
                 if(isset($_SESSION["order_id"]))  
                 {  
                      $customer_details = '';  
-                     $order_details = '';  
+                     $orders_details = '';  
                      $total = 0;  
                      $query = '  
                      SELECT * FROM tbl_order  

@@ -1,3 +1,27 @@
+<?php 
+  require 'koneksi.php';
+
+if(mysqli_error($koneksi)){
+        echo "Gagal menyambungkan database<br>";
+    }
+
+if(isset($_POST["submit"])){
+if (tambah($_POST) > 0){
+    echo "
+    <script>
+    alert('data berhasil ditambahkan!');
+    </script>
+    ";   
+}else{
+    echo"
+    <script>
+    alert('data gagal ditambahkan!');
+    </script>
+    ";
+}
+} 
+
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -147,16 +171,18 @@
     <header>
     <nav>
         <div class="logo">
-            <img src="images/pkb.jpeg" alt="image" height="80px" width="180px"/>
+            <img src="images/logo.jpeg" alt="image" height="80px" width="180px"/>
         </div>
         <ul>
-        <li><a href="../Home/Home.php">Home</a></li>
-            <li><a href="../PakKumis/app/appointment.php">Appointment</a></li>
-            <li><a href="../Informasi/informasi.php">Informasi</a></li>
-            <li><a href="../Layanan/Layanan.php">Layanan</a></li>
-            <li><a href="../produkcart/multi_tab_shopping_cart.php">Produk</a></li>
-            <li><a href="../PakKumis/notifikasi/index.php">Notifikasi</a></li>
-            <li><a data-toggle="tab" href="#cart">Cart <span class="badge"><?php if(isset($_SESSION["barbershop"])) { echo count($_SESSION["barbershop"]); } else { echo '0';}?></span></a></li>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Appointment</a></li>
+            <li><a href="#">Informasi</a></li>
+            <li><a href="#">Layanan</a></li>
+            <li class="active"><a data-toggle="tab" href="#products">Produk</a></li>
+            <li><a href="#">Notifikasi</a></li>
+            <li><a data-toggle="tab" href="#cart">Cart <span class="badge">
+              <?php if(isset($_SESSION["barbersho"])) { echo count($_SESSION["testing"]); } else { echo '0';} ?> 
+            </span></a></li>
         </ul>
         <div class="menu-toggle">
             <input type="checkbox"/>
@@ -171,34 +197,34 @@
 
 
     <div class="testbox">
-      <form action="/">
+      <form action="" method="post">
         <div class="banner">
           <h1>Form</h1>
         </div>
         <div class="item">
           <p>Name</p>
           <div class="name-item">
-            <input type="text" name="name" placeholder="First" />
-            <input type="text" name="name" placeholder="Last" />
+            <input type="text" name="firstname" id="firstname" placeholder="First" />
+            <input type="text" name="lastname" id="lastname" placeholder="Last" />
           </div>
         </div>
         <div class="contact-item">
           <div class="item">
             <p>Email</p>
-            <input type="text" name="name" />
+            <input type="text" name="email"  id="email" />
           </div>
           <div class="item">
             <p>Tanggal & Waktu</p>
-            <input type="text" name="name" />
+            <input type="datetime-local" name="tanggal" id="tanggal" />
           </div>
         </div>
         <div class="item">
           <p>Layanan</p>
-          <input type="text" name="name" />
+          <input type="text" name="layanan" id="layanan" />
         </div>
 
         <div class="btn-block">
-          <button type="submit" href="../PakKumis/konfirmasi/index.php">APPLY</button>
+          <button type="submit" name="submit">APPLY</button>
         </div>
       </form>
     </div>

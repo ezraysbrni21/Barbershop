@@ -26,7 +26,7 @@
         <ul style="font-size:16px">
             <li><a href="../Home/Home.php">Home</a></li>
             <li><a href="../PakKumis/app/appointment.php">Appointment</a></li>
-            <li><a href="../Informasi/informasi.php">Informasi</a></li>
+            <li><a href="../crud info/index.php">Informasi</a></li>
             <li><a href="../Layanan/Layanan.php">Layanan</a></li>
             <li><a href="../produkcart/multi_tab_shopping_cart.php">Produk</a></li>
             <li><a href="../PakKumis/notifikasi/index.php">Notifikasi</a></li>
