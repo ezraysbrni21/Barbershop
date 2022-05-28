@@ -1,6 +1,6 @@
 <?php
 // $servername = "localhost";
-// $database = "layanan";
+// $database = "barbershop";
 // $username = "root";
 // $password = "";
  
@@ -15,7 +15,7 @@
     $host = "localhost";
     $user = "root";
     $pass = "";
-    $db = "layanan";
+    $db = "barbershop";
 
     $conn = mysqli_connect($host,$user,$pass,$db);
     if(!$conn){

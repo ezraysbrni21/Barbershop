@@ -171,7 +171,7 @@ if (tambah($_POST) > 0){
     <header>
     <nav>
         <div class="logo">
-            <img src="images/logo.jpeg" alt="image" height="80px" width="180px"/>
+            <img src="images/pkb.jpeg" alt="image" height="80px" width="180px"/>
         </div>
         <ul>
             <li><a href="#">Home</a></li>

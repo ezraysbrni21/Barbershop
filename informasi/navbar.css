@@ -1,0 +1,413 @@
+body{  
+    font-family: Calibri, Helvetica, sans-serif;  
+    background-color: #15616d;}
+
+.img1 {
+    position: absolute;
+width: 299px;
+height: 174px;
+left: 39px;
+top: 173px;
+}
+.p1{
+    position: absolute;
+width: 969px;
+height: 155px;
+left: 370px;
+top: 186px;
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 23px;
+color: #ff7d00;
+}
+h3{
+    position: absolute;
+width: 251px;
+height: 269px;
+left: 17px;
+top: 357px;
+font-family: 'Sansita Swashed';
+font-style: normal;
+font-weight: 400;
+font-size: 32px;
+line-height: 38px;
+text-align: center;
+color: #FF7D00;
+}
+.head3{
+    position: absolute;
+width: 236px;
+height: 31px;
+left: 374px;
+top: 347px;
+font-family: 'Sansita Swashed';
+font-style: normal;
+font-weight: 400;
+font-size: 32px;
+line-height: 38px;
+text-align: center;
+color: #FF7D00;
+}
+.par1{
+    position: absolute;
+width: 931px;
+height: 32px;
+left: 415px;
+top: 400px;
+font-family: 'Koh Santepheap';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 20px;
+color: #ff7d00;
+}
+.img2{
+    position: absolute;
+width: 144px;
+height: 75px;
+left: 435px;
+top: 465px;
+}
+.hair{
+    position: absolute;
+width: 128px;
+height: 45px;
+left: 435px;
+top: 534px;
+font-family: 'Sansita Swashed';
+font-style: normal;
+font-weight: 400;
+font-size: 24px;
+line-height: 29px;
+text-align: center;
+color: #ff7d00;
+}
+.img3{
+    position: absolute;
+width: 144px;
+height: 75px;
+left: 676px;
+top: 465px;
+}
+.kasir{
+    position: absolute;
+    width: 128px;
+    height: 45px;
+    left: 684px;
+    top: 534px;
+    font-family: 'Sansita Swashed';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: center;
+    color: #ff7d00;
+}
+.img4{
+    position: absolute;
+width: 144px;
+height: 75px;
+left: 925px;
+top: 465px;
+}
+.beauty{
+    position: absolute;
+width: 150px;
+height: 45px;
+left: 925px;
+top: 536px;
+font-family: 'Sansita Swashed';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 24px;
+text-align: center;
+color: #ff7d00;
+}
+.img5{
+    position: absolute;
+width: 144px;
+height: 75px;
+left: 1174px;
+top: 465px;
+}
+.pack{
+    position: absolute;
+width: 128px;
+height: 45px;
+left: 1182px;
+top: 534px;
+font-family: 'Sansita Swashed';
+font-style: normal;
+font-weight: 400;
+font-size: 24px;
+line-height: 29px;
+text-align: center;
+color: #ff7d00;
+}
+.intro{
+    position: absolute;
+width: 236px;
+height: 57px;
+left: 31px;
+top: 650px;
+font-family: 'Sansita Swashed';
+font-style: normal;
+font-weight: 400;
+font-size: 32px;
+line-height: 38px;
+text-align: center;
+color: #FF7D00;
+}
+.intro1{
+    position: absolute;
+    width: 106px;
+    height: 101px;
+    left: 70px;
+    top: 750px;
+}
+.hair2{
+position: absolute;
+width: 128px;
+height: 45px;
+left: 63px;
+top: 850px;
+font-family: 'Sansita Swashed';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 24px;
+text-align: center;
+color: #000000;
+}
+.intro2{
+    position: absolute;
+width: 95.06px;
+height: 101px;
+left: 324px;
+top: 750px;
+}
+.hair3{
+    position: absolute;
+width: 128px;
+height: 45px;
+left: 300px;
+top: 850px;
+font-family: 'Sansita Swashed';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 24px;
+text-align: center;
+color: #000000;
+}
+.intro3{
+    position: absolute;
+    width: 134.9px;
+    height: 101px;
+    left: 590px;
+    top: 750px;
+}
+.hair4{
+    position: absolute;
+    width: 164px;
+    height: 45px;
+    left: 570px;
+    top: 850px;
+    font-family: 'Sansita Swashed';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: center;
+    color: #000000;
+}
+.intro4{
+    position: absolute;
+width: 99.71px;
+height: 101px;
+left: 870px;
+top: 750px;
+}
+.hair5{
+    position: absolute;
+width: 152px;
+height: 45px;
+left: 850px;
+top: 850px;
+font-family: 'Sansita Swashed';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 24px;
+text-align: center;
+color: #000000;
+}
+.intro5{
+    position: absolute;
+width: 110px;
+height: 101.6px;
+left: 1125px;
+top: 750px;
+}
+.owner{
+    position: absolute;
+width: 128px;
+height: 45px;
+left: 1120px;
+top: 860px;
+
+font-family: 'Sansita Swashed';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 24px;
+text-align: center;
+
+color: #000000;
+}
+
+.media{
+	right: 17%;
+}
+.gambar{
+	position: relative;
+	margin-top: 70px;
+}
+
+.sosial{
+	text-align: right;
+	margin-top: -220px;
+	margin-right: 265px;
+}
+.jam{
+    position: absolute;
+width: 173px;
+height: 34px;
+left: 77px;
+top: 445px;
+
+font-family: 'Sansation';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 22px;
+text-align: center;
+
+color: #000000;
+
+}
+.libur{
+    position: absolute;
+width: 167px;
+height: 44px;
+left: 86px;
+top: 495px;
+
+font-family: 'Sansation';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 22px;
+text-align: center;
+
+color: #000000;
+
+}
+.jamimg{
+    position: absolute;
+width: 38px;
+height: 58px;
+left: 39px;
+top: 445px;
+}
+.kalender{
+    position: absolute;
+width: 38px;
+height: 58px;
+left: 41px;
+top: 510px;
+}
+.d1{
+    position: absolute;
+    width: 155px;
+    height: 100px;
+    left: 430px;
+    top: 453px;
+
+    background: #FF7D00;
+}
+.d2{
+    position: absolute;
+    width: 155px;
+    height: 100px;
+    left: 670px;
+    top: 453px;
+
+    background: #FF7D00;
+}
+.d3{
+    position: absolute;
+    width: 155px;
+    height: 100px;
+    left: 920px;
+    top: 453px;
+
+    background: #FF7D00;
+}
+.d4{
+    position: absolute;
+    width: 155px;
+    height: 100px;
+    left: 1168px;
+    top: 453px;
+
+    background: #FF7D00;
+}
+.d5{
+    position: absolute;
+    width: 160px;
+    height: 170px;
+    left: 45px;
+    top: 730px;
+
+    background: #FF7D00;
+}
+.d6{
+    position: absolute;
+    width: 160px;
+    height: 170px;
+    left: 290px;
+    top: 730px;
+
+    background: #FF7D00;
+}
+.d7{
+    position: absolute;
+    width: 160px;
+    height: 170px;
+    left: 578px;
+    top: 730px;
+
+    background: #FF7D00;
+}
+.d8{
+    position: absolute;
+    width: 160px;
+    height: 170px;
+    left: 840px;
+    top: 730px;
+
+    background: #FF7D00;
+}
+.d9{
+    position: absolute;
+    width: 160px;
+    height: 170px;
+    left: 1100px;
+    top: 730px;
+
+    background: #FF7D00;
+}
