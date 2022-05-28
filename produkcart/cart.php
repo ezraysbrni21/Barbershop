@@ -21,39 +21,39 @@
                      INSERT INTO orders(id_customer, tanggal_order, total_harga)  
                      VALUES('1', '".date('Y-m-d')."', 'pending')  
                      ";  
-                     $order_id = "";  
-                     if(mysqli_query($connect, $insert_order))  
+                     $id_order = "";  
+                     if(mysqli_query($connect, $insert_orders))  
                      {  
-                          $order_id = mysqli_insert_id($connect);  
+                          $id_order = mysqli_insert_id($connect);  
                      }  
-                     $_SESSION["order_id"] = $order_id;  
-                     $order_details = "";  
+                     $_SESSION["id_order"] = $id_order;  
+                     $orders_details = "";  
                      foreach($_SESSION["barbershop"] as $keys => $values)  
                      {  
-                          $order_details .= "  
+                          $orders_details .= "  
                           INSERT INTO produk(id, nama_produk, deskripsi, harga_beli)  
-                          VALUES('".$order_id."', '".$values["nama_produk"]."', '".$values["deskripsi_produk"]."', '".$values["harga_produk"]."', '".$values["product_quantity"]."');  
+                          VALUES('".$id_order."', '".$values["nama_produk"]."', '".$values["deskripsi_produk"]."', '".$values["harga_produk"]."', '".$values["product_quantity"]."');  
                           ";  
                      }  
-                     if(mysqli_multi_query($connect, $order_details))  
+                     if(mysqli_multi_query($connect, $orders_details))  
                      {  
                           unset($_SESSION["barbershop"]);  
                           echo '<script>alert("You have successfully place an order...Thank you")</script>';  
                           echo '<script>window.location.href="cart.php"</script>';  
                      }  
                 }  
-                if(isset($_SESSION["order_id"]))  
+                if(isset($_SESSION["id_order"]))  
                 {  
                      $customer_details = '';  
                      $orders_details = '';  
                      $total = 0;  
                      $query = '  
-                     SELECT * FROM tbl_order  
-                     INNER JOIN tbl_order_details  
-                     ON tbl_order_details.order_id = tbl_order.order_id  
+                     SELECT * FROM orders  
+                     INNER JOIN orders_details  
+                     ON orders_details.id_order = orders.id_order  
                      INNER JOIN tbl_customer  
-                     ON tbl_customer.CustomerID = tbl_order.customer_id  
-                     WHERE tbl_order.order_id = "'.$_SESSION["order_id"].'"  
+                     ON tbl_customer.CustomerID = orders.customer_id  
+                     WHERE orders.id_order = "'.$_SESSION["id_order"].'"  
                      ';  
                      $result = mysqli_query($connect, $query);  
                      while($row = mysqli_fetch_array($result))  
@@ -64,7 +64,7 @@
                           <p>'.$row["City"].', '.$row["PostalCode"].'</p>  
                           <p>'.$row["Country"].'</p>  
                           ';  
-                          $order_details .= "  
+                          $orders_details .= "  
                                <tr>  
                                     <td>".$row["nama_produk"]."</td> 
                                     <td>".$row["deskripsi_produk"]."</td> 
@@ -76,7 +76,7 @@
                           $total = $total + ($row["product_quantity"] * $row["harga_produk"]);  
                      }  
                      echo '  
-                     <h3 align="center">Order Summary for Order No.'.$_SESSION["order_id"].'</h3>  
+                     <h3 align="center">Order Summary for Order No.'.$_SESSION["id_order"].'</h3>  
                      <div class="table-responsive">  
                           <table class="table">  
                                <tr>  
@@ -86,7 +86,7 @@
                                     <td>'.$customer_details.'</td>  
                                </tr>  
                                <tr>  
-                                    <td><label>Order Details</label></td>  
+                                    <td><label>Orders Details</label></td>  
                                </tr>  
                                <tr>  
                                     <td>  
@@ -98,7 +98,7 @@
                                                    <th width="15%">Price</th>  
                                                    <th width="20%">Total</th>  
                                               </tr>  
-                                              '.$order_details.'  
+                                              '.$orders_details.'  
                                               <tr>  
                                                    <td colspan="3" align="right"><label>Total</label></td>  
                                                    <td>'.number_format($total, 0,',','.').'</td> 

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 27 Bulan Mei 2022 pada 06.48
--- Versi server: 10.4.24-MariaDB
--- Versi PHP: 7.4.29
+-- Generation Time: May 28, 2022 at 11:23 AM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 8.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,247 +24,250 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `admin`
+-- Table structure for table `admin`
 --
 
 CREATE TABLE `admin` (
-  `id_admin` INT(20) NOT NULL,
-  `username` VARCHAR(45) NOT NULL,
-  `password` VARCHAR(45) NOT NULL
-) ENGINE=INNODB DEFAULT CHARSET=utf8mb4;
+  `id_admin` int(20) NOT NULL,
+  `username` varchar(45) NOT NULL,
+  `password` varchar(45) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `appointment`
+-- Table structure for table `appointment`
 --
 
 CREATE TABLE `appointment` (
-  `id_appointment` INT(20) NOT NULL,
-  `tanggal_appointment` DATE NOT NULL,
-  `waktu` TIME NOT NULL,
-  `status` VARCHAR(45) NOT NULL,
-  `biaya_appoinment` VARCHAR(45) NOT NULL,
-  `notifikasi` VARCHAR(200) NOT NULL
-) ENGINE=INNODB DEFAULT CHARSET=utf8mb4;
+  `id_appointment` int(20) NOT NULL,
+  `tanggal_appointment` date NOT NULL,
+  `waktu` time NOT NULL,
+  `status` varchar(45) NOT NULL,
+  `biaya_appoinment` varchar(45) NOT NULL,
+  `notifikasi` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `barang`
---
-
-CREATE TABLE `barang` (
-  `id` INT(11) NOT NULL,
-  `nama_produk` VARCHAR(225) CHARACTER SET latin1 DEFAULT NULL,
-  `deskripsi` VARCHAR(500) CHARACTER SET latin1 DEFAULT NULL,
-  `harga_beli` INT(11) DEFAULT NULL,
-  `gambar_produk` VARCHAR(500) CHARACTER SET latin1 DEFAULT NULL
-) ENGINE=INNODB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data untuk tabel `barang`
---
-
-INSERT INTO `barang` (`id`, `nama_produk`, `deskripsi`, `harga_beli`, `gambar_produk`) VALUES
-(1, 'Masker', 'Masker Wajah', 29, '625-masker.PNG');
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `coupon`
+-- Table structure for table `coupon`
 --
 
 CREATE TABLE `coupon` (
-  `id_coupon` INT(20) NOT NULL,
-  `nama_coupon` VARCHAR(45) NOT NULL
-) ENGINE=INNODB DEFAULT CHARSET=utf8mb4;
+  `id_coupon` int(20) NOT NULL,
+  `nama_coupon` varchar(45) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `customer`
+-- Table structure for table `customer`
 --
 
 CREATE TABLE `customer` (
-  `id` INT(20) NOT NULL,
-  `user_id` BIGINT(45) NOT NULL,
-  `user_name` INT(20) NOT NULL,
-  `password` VARCHAR(45) NOT NULL,
-  `id_admin` INT(20) NOT NULL,
-  `id_appointment` INT(20) NOT NULL,
-  `id_coupon` INT(20) NOT NULL
-) ENGINE=INNODB DEFAULT CHARSET=utf8mb4;
+  `id` int(20) NOT NULL,
+  `user_id` bigint(45) NOT NULL,
+  `user_name` varchar(100) NOT NULL,
+  `password` varchar(45) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `customer`
+--
+
+INSERT INTO `customer` (`id`, `user_id`, `user_name`, `password`) VALUES
+(0, 9223372036854775807, '0', 'yuniar'),
+(0, 764085785917331, 'gabi', 'abcdef');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `customer_has_layanan`
+-- Table structure for table `customer_has_layanan`
 --
+
+CREATE TABLE `customer_has_layanan` (
+  `id_customer` int(20) NOT NULL,
+  `id_appointment` int(20) NOT NULL,
+  `id_layanan` int(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `customer_has_produk`
+-- Table structure for table `customer_has_produk`
 --
+
+CREATE TABLE `customer_has_produk` (
+  `id_customer` int(20) NOT NULL,
+  `id_produk` int(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `konfirmasi`
+-- Table structure for table `informasi`
+--
+
+CREATE TABLE `informasi` (
+  `id` varchar(50) NOT NULL,
+  `jobdesc` varchar(200) NOT NULL,
+  `gaji` int(11) NOT NULL,
+  `gambar` varchar(500) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `informasi`
+--
+
+INSERT INTO `informasi` (`id`, `jobdesc`, `gaji`, `gambar`) VALUES
+('Perawatan Wajah', 'memotong rambut', 1000000, 'wajah.jpg'),
+('Potong Rambut', 'Memotong rambut', 1000000, 'pr.JPG');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `konfirmasi`
 --
 
 CREATE TABLE `konfirmasi` (
-  `id` INT(11) NOT NULL,
-  `nama` VARCHAR(100) NOT NULL,
-  `tanggal_waktu` DATETIME NOT NULL,
-  `layanan` TEXT NOT NULL
-) ENGINE=INNODB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data untuk tabel `konfirmasi`
---
-
-INSERT INTO `konfirmasi` (`id`, `nama`, `tanggal_waktu`, `layanan`) VALUES
-(1, 'Riel', '2022-05-26 14:00:00', 'Potong Rambut');
+  `id` int(11) NOT NULL,
+  `nama` varchar(100) NOT NULL,
+  `tanggal_waktu` datetime NOT NULL,
+  `layanan` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `layanan`
+-- Table structure for table `layanan`
 --
 
 CREATE TABLE `layanan` (
-  `id_layanan` INT(20) NOT NULL,
-  `jenis_layanan` VARCHAR(45) NOT NULL,
-  `deskripsi_layanan` VARCHAR(200) NOT NULL,
-  `harga_layanan` VARCHAR(45) NOT NULL
-) ENGINE=INNODB DEFAULT CHARSET=utf8mb4;
+  `id_layanan` int(20) NOT NULL,
+  `jenis_layanan` varchar(45) NOT NULL,
+  `deskripsi_layanan` varchar(200) NOT NULL,
+  `harga_layanan` varchar(45) NOT NULL,
+  `diskon_produk` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `orders`
+-- Table structure for table `orders`
 --
 
 CREATE TABLE `orders` (
-  `id_order` INT(20) NOT NULL,
-  `tanggal_order` DATETIME NOT NULL,
-  `jumlah_produk` INT(20) NOT NULL,
-  `total_harga` VARCHAR(45) NOT NULL,
-  `notifikasi` VARCHAR(200) NOT NULL,
-  `id` INT(20) NOT NULL
-) ENGINE=INNODB DEFAULT CHARSET=utf8mb4;
+  `id_order` int(20) NOT NULL,
+  `tanggal_order` datetime NOT NULL,
+  `jumlah_produk` int(20) NOT NULL,
+  `total_harga` varchar(45) NOT NULL,
+  `notifikasi` varchar(200) NOT NULL,
+  `id_customer` int(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`id_order`, `tanggal_order`, `jumlah_produk`, `total_harga`, `notifikasi`, `id_customer`) VALUES
+(0, '2022-05-27 00:00:00', 0, 'pending', '', 1),
+(0, '2022-05-27 00:00:00', 0, 'pending', '', 1);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `produk`
+-- Table structure for table `pesanan`
+--
+
+CREATE TABLE `pesanan` (
+  `id` int(11) NOT NULL,
+  `firstname` varchar(50) NOT NULL,
+  `lastname` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `tanggal` datetime NOT NULL,
+  `layanan` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `pesanan`
+--
+
+INSERT INTO `pesanan` (`id`, `firstname`, `lastname`, `email`, `tanggal`, `layanan`) VALUES
+(1, 'Jensri', 'S', 'if421013@students.del.ac.id', '0000-00-00 00:00:00', 'potong rambut'),
+(2, 'Jensri', 'S', 'if421013@students.del.ac.id', '0000-00-00 00:00:00', 'potong rambut'),
+(3, 'Jensri', 'S', 'if421013@students.del.ac.id', '0000-00-00 00:00:00', 'potong rambut');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `produk`
 --
 
 CREATE TABLE `produk` (
-  `id_produk` INT(20) NOT NULL,
-  `nama_produk` VARCHAR(45) NOT NULL,
-  `deskripsi_produk` VARCHAR(200) NOT NULL,
-  `harga_produk` VARCHAR(45) NOT NULL,
-  `kategori` VARCHAR(45) NOT NULL,
-  `stok` VARCHAR(45) NOT NULL,
-  `gambar` VARCHAR(500) NOT NULL
-) ENGINE=INNODB DEFAULT CHARSET=utf8mb4;
+  `id_produk` int(20) NOT NULL,
+  `nama_produk` varchar(45) NOT NULL,
+  `deskripsi_produk` varchar(200) NOT NULL,
+  `harga_produk` varchar(45) NOT NULL,
+  `stok` varchar(45) NOT NULL,
+  `gambar` varchar(500) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `produk`
+-- Dumping data for table `produk`
 --
 
-INSERT INTO `produk` (`id_produk`, `nama_produk`, `deskripsi_produk`, `harga_produk`, `kategori`, `stok`, `gambar`) VALUES
-(1001, 'Tata Pomade', 'Tata pomade merupakan produk styling rambut Water Base.\r\nPomade ini merupakan varian yang diperuntukkan pada rambut\r\nberketombe. Selain itu pomade ini mudah untuk dibersihkan,\r\ntahan lama, tidak lengk', '22000', 'Pomade', '20', 'pomade.png'),
-(1002, 'Philips Electric Shaver PQ206', 'Pencukur listrik Philips PQ206 akan memberikan hasil cukur\r\nyang bersih dengan kualitas yang dapat memaksimalkan\r\npenampilan Anda. Alat cukur ini juga akan\r\nmenjangkau rambut ke segala arah sehingga h', '210000', 'Pencukur', '20', 'shaver.png'),
-(1003, 'Garnier Men Acno Fight', 'Facial foam mengandung herbal rpair dan purifyng salucylic acid.\r\nFacial ini dapat mengurangi mengurangi mintak berlebih,\r\ntimbulnya jerawat, komedo, pori-pori besar,\r\nkemerahan dan noda bekas jerawat', '25000', 'Sabun cuci muka', '25', 'garnier.png'),
-(1004, 'Nivea Sun Protect Moisture', 'Nivea Sun Protect & Moisture memberikan perlindungan\r\nkulit dari sinar matahari. Nivea Sun Protect & Moisture\r\njuga memberikan nutrisi kepada kulit,\r\nmelembabkan kulit, dan mencegah penuaan.', '73000', 'Sunblock', '10', 'sunblock.png'),
-(1005, 'Garnier Black Serum', 'Untuk menghilangkan pori-pori yang lebar pada wajah\r\nGarnier Black Serum Mask adalah solusi yang tepat. Dengan\r\nmenggunakan masker ini kulit wajah akan menjadi halus dan juga mulus.\r\nMasker ini juga m', '21000', 'Masker wajah', '18', 'masker.png'),
-(1006, 'Shaving Cream', 'Shaving cream ini berfungsi untuk pembersih wajah\r\ndan tidak mengandung alkohol. Shaving ini juga memiliki\r\nkandungan busa yang banyak serta tidak menyebabkan iritasi.', '149000', 'Shaving cream', '15', 'cream.png');
+INSERT INTO `produk` (`id_produk`, `nama_produk`, `deskripsi_produk`, `harga_produk`, `stok`, `gambar`) VALUES
+(1001, 'Tata Pomade', 'Tata pomade merupakan produk styling rambut Water Base.\r\nPomade ini merupakan varian yang diperuntukkan pada rambut\r\nberketombe. Selain itu pomade ini mudah untuk dibersihkan,\r\ntahan lama, tidak lengk', '22000', '20', 'pomade.png'),
+(1002, 'Philips Electric Shaver PQ206', 'Pencukur listrik Philips PQ206 akan memberikan hasil cukur\r\nyang bersih dengan kualitas yang dapat memaksimalkan\r\npenampilan Anda. Alat cukur ini juga akan\r\nmenjangkau rambut ke segala arah sehingga h', '210000', '20', 'shaver.png'),
+(1003, 'Garnier Men Acno Fight', 'Facial foam mengandung herbal rpair dan purifyng salucylic acid.\r\nFacial ini dapat mengurangi mengurangi mintak berlebih,\r\ntimbulnya jerawat, komedo, pori-pori besar,\r\nkemerahan dan noda bekas jerawat', '25000', '25', 'garnier.png'),
+(1004, 'Nivea Sun Protect Moisture', 'Nivea Sun Protect & Moisture memberikan perlindungan\r\nkulit dari sinar matahari. Nivea Sun Protect & Moisture\r\njuga memberikan nutrisi kepada kulit,\r\nmelembabkan kulit, dan mencegah penuaan.', '73000', '10', 'sunblock.png'),
+(1005, 'Garnier Black Serum', 'Untuk menghilangkan pori-pori yang lebar pada wajah\r\nGarnier Black Serum Mask adalah solusi yang tepat. Dengan\r\nmenggunakan masker ini kulit wajah akan menjadi halus dan juga mulus.\r\nMasker ini juga m', '21000', '18', 'masker.png'),
+(1006, 'Shaving Cream', 'Shaving cream ini berfungsi untuk pembersih wajah\r\ndan tidak mengandung alkohol. Shaving ini juga memiliki\r\nkandungan busa yang banyak serta tidak menyebabkan iritasi.', '149000', '15', 'cream.png');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `admin`
+-- Indexes for table `admin`
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`id_admin`);
 
 --
--- Indeks untuk tabel `appointment`
+-- Indexes for table `appointment`
 --
 ALTER TABLE `appointment`
   ADD PRIMARY KEY (`id_appointment`);
 
 --
--- Indeks untuk tabel `barang`
---
-ALTER TABLE `barang`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indeks untuk tabel `coupon`
+-- Indexes for table `coupon`
 --
 ALTER TABLE `coupon`
   ADD PRIMARY KEY (`id_coupon`);
 
 --
--- Indeks untuk tabel `customer`
+-- Indexes for table `informasi`
 --
-ALTER TABLE `customer`
-  ADD PRIMARY KEY (`id`);
---
--- Indeks untuk tabel `konfirmasi`
---
-ALTER TABLE `konfirmasi`
+ALTER TABLE `informasi`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `layanan`
+-- Indexes for table `pesanan`
 --
-ALTER TABLE `layanan`
-  ADD PRIMARY KEY (`id_layanan`);
+ALTER TABLE `pesanan`
+  ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `orders`
---
-ALTER TABLE `orders`
-  ADD PRIMARY KEY (`id_order`),
-  ADD KEY `id` (`id`);
-
---
--- Indeks untuk tabel `produk`
---
-ALTER TABLE `produk`
-  ADD PRIMARY KEY (`id_produk`);
-
---
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `barang`
+-- AUTO_INCREMENT for table `pesanan`
 --
-ALTER TABLE `barang`
-  MODIFY `id` INT(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT untuk tabel `konfirmasi`
---
-ALTER TABLE `konfirmasi`
-  MODIFY `id` INT(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
---
-
---
--- Ketidakleluasaan untuk tabel `orders`
---
-ALTER TABLE `orders`
-  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`id`) REFERENCES `customer` (`id`);
+ALTER TABLE `pesanan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
